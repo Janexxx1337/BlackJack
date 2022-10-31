@@ -70,7 +70,17 @@ def DealCard(ans):
                     take_answer = False
                     print(f'You lose with score {next_dealer} and your opponent score is: {next_res}')
 
-                elif next_res == next_dealer:
+                elif next_dealer > 21 and next_res > 21:
+                    if next_dealer > next_res:
+                        take_answer = False
+                        print(f'Winner is {next_res}.Computer score is: {next_dealer}')
+
+                elif next_dealer > 21 and next_res > 21:
+                    if next_dealer < next_res:
+                        take_answer = False
+                        print(f'Winner is {next_dealer}.Human score is: {next_res}')
+
+                elif next_res <= 21 and next_res == next_dealer and next_dealer <= 21:
                     take_answer = False
                     print(f'You have DRAW! With result: {next_res} and {next_dealer}!')
 
@@ -83,9 +93,8 @@ def DealCard(ans):
                 elif 21 >= next_res > next_dealer:
                     print(f'You lose robot:{next_dealer} Human is the winner  with score: {next_res}!')
 
-                elif next_res == next_dealer:
+                elif next_res <= 21 and next_res == next_dealer and next_dealer <= 21:
                     print(f'You have DRAW! With result: {next_res} and {next_dealer}!')
-
 
 
 DealCard(wanna_play)
